@@ -6,7 +6,7 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
   styleUrls: ['./content.component.css']
 })
 export class ContentComponent implements OnInit {
-newservername='';
+// newservername='';
 newserverContent='';
  @Output() serverCreated =new EventEmitter<{name:string,content:string}>();
  @Output()  blueprintcreated=new EventEmitter<{name:string,content:string}>();
@@ -15,12 +15,12 @@ newserverContent='';
 
   ngOnInit(): void {
   }
-  onaddBlueprint(){
-    this.blueprintcreated.emit({name:this.newservername, content:this.newserverContent})
+  onaddBlueprint(name: HTMLInputElement){
+    this.blueprintcreated.emit({name:name.value, content:this.newserverContent})
 
   }
-  onaddserver(){
-    this.serverCreated.emit({name:this.newservername, content:this.newserverContent})
+  onaddserver(name: HTMLInputElement){
+    this.serverCreated.emit({name:name.value, content:this.newserverContent})
 
   }
 }
